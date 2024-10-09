@@ -5,6 +5,7 @@ Created on Wed Oct  9 22:41:06 2024
 """
 
 # ---------- Importing Libraries ----------
+import streamlit as st
 import json
 import requests
 import pandas as pd
@@ -15,6 +16,7 @@ from datetime import datetime
 
 # ---------- Get Historical Data from NSE ----------
 # ---------- ---------- ---------- ---------- ----------
+@st.cache_data
 def get_historical(stck, cookie_val, from_date, to_date):
 
   # ----- Get Data -----
@@ -71,6 +73,7 @@ def get_historical(stck, cookie_val, from_date, to_date):
 
 # ---------- Get Today's Data from NSE ----------
 # ---------- ---------- ---------- ---------- ----------
+@st.cache_data
 def get_today(stck, cookie_val):
 
   # ----- Get Data -----
@@ -120,6 +123,7 @@ def get_today(stck, cookie_val):
 
 # ---------- Get Current Data Chart from NSE ----------
 # ---------- ---------- ---------- ---------- ----------
+@st.cache_data
 def get_current(stck, cookie_val):
 
   # ----- Get Data -----
