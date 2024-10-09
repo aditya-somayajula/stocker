@@ -9,7 +9,7 @@ if __name__ == '__main__':
         
         ########### Display Page Title----------
         # st.sidebar.markdown("# Main Page")
-        st.title("Stock Predictor")
+        st.title("Stock Predictor 📐")
         st.write('This page gives insights into the possible price values of a stock')
         st.markdown("---")
         
