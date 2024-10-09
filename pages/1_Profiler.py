@@ -13,7 +13,7 @@ if __name__ == '__main__':
         st.title("Stock Profiler 👓")
         st.write('This page gives insights into the profiling analysis - both fundamental and technical, of the individual stock')
 
-        ip_file = '.\config\Indices.csv'
+        ip_file = 'config/Indices.csv'
         index_frame = pd.read_csv(ip_file, sep='|')
         index_frame['Options'] = index_frame['SYMBOL'] + ' (' + index_frame['COMPANY'] + ')'
 
