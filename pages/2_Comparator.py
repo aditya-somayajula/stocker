@@ -15,7 +15,7 @@ if __name__ == '__main__':
         
         ip_file = 'config/Indices.csv'
         index_frame = pd.read_csv(ip_file, sep='|')
-        # index_frame['Options'] = index_frame['SYMBOL'] + ' (' + index_frame['COMPANY'] + ')'
+        index_frame['Options'] = index_frame['SYMBOL'] + ' (' + index_frame['COMPANY'] + ')'
 
         ########### Display initial options----------
         col1, col2, col3 = st.columns([1, 0.75, 1])
