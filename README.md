@@ -1,2 +1,2 @@
-# stocker
-GitHub repository that holds the code for predicting stock prices
+# Stocker
+Stocker is an open-source stock price predicter web app built specifically to provide various insights into the Symbols traded over the National Stock Exchange (NSE) - India.
