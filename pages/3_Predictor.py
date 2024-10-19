@@ -13,22 +13,32 @@ if __name__ == '__main__':
         st.title('Stock Predictor 📐')
         st.write('This page gives insights into the possible price values of a stock')
 
+        ########### Get Values----------
         ip_file = 'config/Indices.csv'
         index_frame = pd.read_csv(ip_file, sep='|')
         index_frame = index_frame[['SYMBOL', 'COMPANY']].drop_duplicates(subset=['SYMBOL', 'COMPANY'], keep='first')
         index_frame['Options'] = index_frame['SYMBOL'] + ' (' + index_frame['COMPANY'] + ')'
+        
+        feature_Set_list = ['ALL', 'Feature Set 1', 'Feature Set 2', 'Feature Set 3', 'Feature Set 4', 'Feature Set 5', 'Feature Set 6']
+        model_list = ['ALL', 'Linear Regression', 'Decision Trees', 'Random Forest', 'XG Boost']
 
         ########### Display initial options----------
-        col1, col2, col3 = st.columns([1, 0.75, 1])
+        col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
             symbol_select_option = st.selectbox('***Choose a Symbol***', sorted(list(index_frame['Options'])), index=0)
         with col3:
             user_cookie = st.text_input('***Cookie Value from NSE***', 
                                         help='To get Cookie value, go to the NSE website and look to download a CSV file of any symbol. The API call that gets triggered will have a cookie that can be accessed via Developer tools from a web browser')
+        st.write('')
         
-        analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
+        col1, col2,col3 = st.columns([1, 1, 1])
+        with col1:
+            analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
+        with col2:
+            feature_select_option = st.selectbox('***Choose a Feature Set***', feature_Set_list, index=0)
+        with col3:
+            model_select_option = st.selectbox('***Choose a Model***', model_list, index=0)
         result = st.button('Run Prediction', type='secondary')
-        
         st.markdown('---')
         
         ########### Display Prediction Results----------
