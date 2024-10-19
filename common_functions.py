@@ -32,7 +32,6 @@ def get_market_status(cke_val):
 
         response = requests.request("GET", url, headers=headers, data=payload)
         mkt_data = json.loads(response.text)
-        st.write(response.text)
         if 'marketState' in mkt_data.keys():
             mkt_Frame = pd.DataFrame(mkt_data['marketState'])
             mkt_Frame = mkt_Frame[mkt_Frame['market'] == 'Capital Market']
