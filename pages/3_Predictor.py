@@ -26,7 +26,7 @@ if __name__ == '__main__':
             user_cookie = st.text_input('***Cookie Value from NSE***', 
                                         help='To get Cookie value, go to the NSE website and look to download a CSV file of any symbol. The API call that gets triggered will have a cookie that can be accessed via Developer tools from a web browser')
         
-        analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None,)
+        analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
         result = st.button('Run Prediction', type='secondary')
         
         st.markdown('---')
