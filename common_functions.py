@@ -17,6 +17,7 @@ from datetime import datetime
 
 # ---------- Market Status API ----------
 # ---------- ---------- ---------- ---------- ----------
+@st.cache_data
 def get_market_status(cke_val):
     mkt_data = {}
     try:
@@ -47,4 +48,3 @@ def get_market_status(cke_val):
         print(str(e))
         return False, 'Unable to get Market Status'
 # ---------- ---------- ---------- ---------- ----------         
-
