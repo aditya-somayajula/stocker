@@ -22,13 +22,13 @@ if __name__ == '__main__':
         ########### Display initial options----------
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
-            symbol_select_option = st.selectbox('***Please select a Symbol***', sorted(list(index_frame['Options'])), index=None, placeholder='Choose a Symbol...')
+            symbol_select_option = st.selectbox('***Choose a Symbol***', sorted(list(index_frame['Options'])), index=None, placeholder='Choose a Symbol...')
         with col3:
             user_cookie = st.text_input('***Cookie Value from NSE***', value=None,
                                         help='To get Cookie value, go to the NSE website and look to download a CSV file of any symbol. The API call that gets triggered will have a cookie that can be accessed via Developer tools from a web browser')
         st.write('')
         
-        analysis = st.radio('***Please select analysis type***', ['Fundamental', 'Technical', 'Fundamental & Technical'], index=None,)
+        analysis = st.radio('***Choose Analysis Type***', ['Fundamental', 'Technical', 'Fundamental & Technical'], index=None,)
         result = st.button('Run Profiling', type='secondary')
         st.markdown('---')
         
