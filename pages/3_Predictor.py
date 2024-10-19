@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sys
+import common_functions
 
 if __name__ == '__main__':
     try:
@@ -33,7 +34,7 @@ if __name__ == '__main__':
         
         col1, col2,col3 = st.columns([1, 1, 1])
         with col1:
-            analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
+            analysis = st.radio('***Choose a Prediction Type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
         with col2:
             feature_select_option = st.selectbox('***Choose a Feature Set***', feature_Set_list, index=None)
         with col3:
@@ -42,12 +43,33 @@ if __name__ == '__main__':
         st.markdown('---')
         
         ########### Display Prediction Results----------
-        if symbol_select_option is not None and analysis is not None and result:
-            st.write(f'Thank you for selecting {symbol_select_option} for prediction analysis. I\'m coming pretty soon.')
+        if result:
+            if symbol_select_option is None:
+                st.warning('Please select a Symbol.')
+            elif user_cookie is None:
+                st.warning('Please provide cookie value.')
+            elif analysis is None:
+                st.warning('Please select a Prediction Type.')
+            elif feature_select_option is None:
+                st.warning('Please select a Feature Set.')
+            elif model_select_option is None:
+                st.warning('Please select a Model.')
+            else:
+                if analysis == 'Active Prediction':
+                    mkt_status_bool, mkt_status_data = common_functions.get_market_status(user_cookie)
+                    print(mkt_status_data)
+                    if mkt_status_bool:
+                        if mkt_status_data == 'Market is Closed':
+                            st.warning('Unable to perform Active Prediction as market is closed. Active Prediction is enabled only during trading window.')
+                        if mkt_status_data == 'Market is Open':
+                            st.write('Active Prediction Code in progress. Stay Tuned...!!!')
+                    else:
+                        st.warning('Unable to get Market Status. Hence, unable to perform active prediction of prices. Contact administrator')
+                else:
+                    st.write('Passive Prediction Code in progress. Stay Tuned...!!!')
         else:
-            st.write('Please make a selection...!!!')
-        
-        
+            st.write('Please make a selection to view predicted prices')
+            
     except Exception as e:
         # logging.error(e)
         print(e)
