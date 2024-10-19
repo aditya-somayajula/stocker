@@ -25,7 +25,7 @@ if __name__ == '__main__':
         ########### Display initial options----------
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
-            symbol_select_option = st.selectbox('***Choose a Symbol***', sorted(list(index_frame['Options'])), index=0)
+            symbol_select_option = st.selectbox('***Choose a Symbol***', sorted(list(index_frame['Options'])), index=None)
         with col3:
             user_cookie = st.text_input('***Cookie Value from NSE***', 
                                         help='To get Cookie value, go to the NSE website and look to download a CSV file of any symbol. The API call that gets triggered will have a cookie that can be accessed via Developer tools from a web browser')
@@ -35,9 +35,9 @@ if __name__ == '__main__':
         with col1:
             analysis = st.radio('***Please select prediction type***', ['Active Prediction', 'Passiv Prediction'], index=None, captions=['***Predict prices during trading window***', '***Predict prices post trading window***'], horizontal=True)
         with col2:
-            feature_select_option = st.selectbox('***Choose a Feature Set***', feature_Set_list, index=0)
+            feature_select_option = st.selectbox('***Choose a Feature Set***', feature_Set_list, index=None)
         with col3:
-            model_select_option = st.selectbox('***Choose a Model***', model_list, index=0)
+            model_select_option = st.selectbox('***Choose a Model***', model_list, index=None)
         result = st.button('Run Prediction', type='secondary')
         st.markdown('---')
         
