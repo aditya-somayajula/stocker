@@ -33,7 +33,7 @@ if __name__ == '__main__':
         
         ########### Display Prediction Results----------
         if symbol_select_option is not None and result:
-            st.write(f'Thank you for selecting {symbol_select_option} for comparision analysis. I\'m coming pretty soon.')
+            st.write(f'Thank you for selecting {symbol_select_option} for prediction analysis. I\'m coming pretty soon.')
         else:
             st.write('Please make a selection...!!!')
         
