@@ -57,7 +57,7 @@ if __name__ == '__main__':
             else:
                 if analysis == 'Active Prediction':
                     mkt_status_bool, mkt_status_data = common_functions.get_market_status(user_cookie)
-                    print(mkt_status_data)
+                    st.write(mkt_status_data)
                     if mkt_status_bool:
                         if mkt_status_data == 'Market is Closed':
                             st.warning('Unable to perform Active Prediction as market is closed. Active Prediction is enabled only during trading window.')
