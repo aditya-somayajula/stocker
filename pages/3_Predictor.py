@@ -27,7 +27,7 @@ if __name__ == '__main__':
         with col1:
             symbol_select_option = st.selectbox('***Choose a Symbol***', sorted(list(index_frame['Options'])), index=None)
         with col3:
-            user_cookie = st.text_input('***Cookie Value from NSE***', 
+            user_cookie = st.text_input('***Cookie Value from NSE***', value=None,
                                         help='To get Cookie value, go to the NSE website and look to download a CSV file of any symbol. The API call that gets triggered will have a cookie that can be accessed via Developer tools from a web browser')
         st.write('')
         
