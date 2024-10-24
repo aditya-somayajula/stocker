@@ -6,7 +6,7 @@ import common_functions
 
 if __name__ == '__main__':
     try:
-        with open('E:/PythonScripts/Stocker/config/config.json', encoding='utf-8') as cf:
+        with open('config/config.json', encoding='utf-8') as cf:
             config_data = json.load(cf)
             
             
