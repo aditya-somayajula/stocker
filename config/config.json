@@ -1,0 +1,30 @@
+{
+    "splitting": {
+        "test_size": 0.05,
+        "train_size": 0.95
+    },
+    "features": {
+        "ALL": "ALL",
+        "Feature Set 1": [
+            "High_Open",
+            "Low_Open",
+            "High_Low_Open_Avg"
+        ],
+        "Feature Set 2": [
+            "High_Open",
+            "Low_Open"
+        ],
+        "Feature Set 3": [
+            "High_Low_Open_Avg"
+        ]
+    },
+    "models": {
+        "ALL": "ALL",
+        "Linear Regression": "Linear Regression",
+        "Lasso Regression": "Lasso Regression",
+        "Ridge Regression": "Ridge Regression",
+        "Decision Trees": "Decision Trees",
+        "Random Forest": "Random Forest",
+        "XG Boost": "XG Boost"
+    }
+}
